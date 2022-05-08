@@ -1,0 +1,138 @@
+
+
+# function for Q 15
+def sum_positive(a):
+    sum = 0
+    if a:
+        for i in a:
+            if i > 0:
+                sum += i
+    else:
+        return 0
+    return sum
+
+# function for Q 16
+def count_evens(lst):
+    num_of_even_number = 0
+    if lst:
+        for i in lst:
+            if i % 2 == 0:
+                num_of_even_number += 1
+    else:
+        return 0
+    
+    return num_of_even_number
+
+
+# function fo Q 17
+def print_big_enough(lst, x):
+    for i in lst:
+        if i >= x:
+            print(i)
+
+
+# function for Q 18
+def next_number(lst):
+    positive_int = 1
+    while 1:
+        if positive_int not in lst:
+            return positive_int
+        positive_int += 1
+    
+
+# function fo Q 19
+def reverse(lst):
+    reversed_list = [0 for i in range(len(lst))]
+
+    for i in range(len(lst)):
+        reversed_list[len(lst) - i - 1] = lst[i]
+
+    return reversed_list
+
+
+
+# python code for Q 20 (for Q 20 call this function)
+def Q20():
+    m = [[1 for i in range(9)] for j in range(6)]
+    
+    for i in range(6):
+        for j in range(9):
+            print(m[i][j], end='  ')
+        print('\n')
+    print('\n\n')
+    m[2][4] = 0
+
+    for i in range(6):
+        for j in range(9):
+            print(m[i][j], end='  ')
+        print('\n')
+
+
+# python code for Q 21 (for Q 21 call this function)
+def Q21():
+    # 1st way
+    lst = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+    # 2nd way
+    lst = [x for x in range(1, 11)]
+
+    # 3rd way
+    lst = list(range(1, 11))
+
+    # 4th way
+    lst = list()
+    for i in range(1,11):
+        lst.append(i)
+
+    # 5th way
+    lst = [0] * 10
+    for i in range(1, 11):
+        lst[i-1] = i
+
+
+# function for Q22
+def Q22(m):
+    new_mat = [[0] * len(m)] * len(m)
+    for i in range(len(m)):
+        for j in range(len(m[0])):
+            new_mat[j][i] = m[i][j]
+    flag = 0
+
+    for i in range(len(m)):
+        for j in range(len(m)):
+            if m[i] == new_mat[j]:
+                flag = 1
+
+    if flag:
+        return True
+    else:
+        return False
+
+
+# function for Q23
+def check_winner(m):
+    new_mat = [[0] * len(m)] * len(m)
+    for i in range(len(m)):
+        for j in range(len(m[0])):
+            new_mat[j][i] = m[i][j]
+    for i in m:
+        if i[0] == i[1] == i[2] == 'X':
+            return 'X'
+        elif i[0] == i[1] == i[2] == 'O':
+            return 'O'
+    for i in new_mat:
+        if i[0] == i[1] == i[2] == 'X':
+            return 'X'
+        elif i[0] == i[1] == i[2] == 'O':
+            return 'O'
+    if m[0][0] == m[1][1] == m[2][2] == 'X':
+        return 'X'
+    elif m[0][0] == m[1][1] == m[2][2] == 'O':
+        return 'O'
+    if m[0][2] == m[1][1] == m[2][0] == 'X':
+        return 'X'
+    elif m[0][2] == m[1][1] == m[2][0] == 'X':
+        return 'O'
+    return ' '
+
+                
